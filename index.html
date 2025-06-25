@@ -24,6 +24,10 @@
   <!-- AOS (Animaciones) -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
+
+
+
+
    <style>
     html {
       overflow-x: hidden;
@@ -45,35 +49,51 @@
         background-attachment: scroll;
       }
     }
+.bubble-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
 
-    .bubble-container {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      overflow: visible;
-      pointer-events: none;
-      z-index: 0;
-    }
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+background: radial-gradient(circle at 30% 30%, #E8DFFB, #D4C5F9);
+  filter: blur(1px) drop-shadow(0 0 6px rgba(167, 139, 250, 0.6));
+  animation: floatBubble linear infinite;
+}
 
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.4;
-      filter: drop-shadow(0 0 5px rgba(196, 165, 252, 0.7));
-      animation: floatBubble 3s linear infinite;
-      background: radial-gradient(circle at 30% 30%, #D4ADFC, #B19CD9);
-    }
+@keyframes floatBubble {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { opacity: 0.4; }
+  100% { transform: translateY(-150px) scale(1.1); opacity: 0; }
+}
 
-    .bubble:nth-child(1) { width: 40px; height: 40px; top: 10%; left: 15%; animation-delay: 0s; }
-    .bubble:nth-child(2) { width: 35px; height: 35px; top: 40%; left: 60%; animation-delay: 2s; }
-    .bubble:nth-child(3) { width: 30px; height: 30px; top: 70%; left: 30%; animation-delay: 4s; }
-    .bubble:nth-child(4) { width: 25px; height: 25px; top: 20%; left: 80%; animation-delay: 6s; }
-    .bubble:nth-child(5) { width: 45px; height: 45px; top: 50%; left: 45%; animation-delay: 8s; }
+/* Personaliza cada burbuja */
+.bubble:nth-child(1) { width: 40px; height: 40px; top: 10%; left: 15%; animation-delay: 0s; animation-duration: 8s; }
+.bubble:nth-child(2) { width: 35px; height: 35px; top: 30%; left: 60%; animation-delay: 1s; animation-duration: 9s; }
+.bubble:nth-child(3) { width: 30px; height: 30px; top: 60%; left: 25%; animation-delay: 2s; animation-duration: 7s; }
+.bubble:nth-child(4) { width: 25px; height: 25px; top: 20%; left: 80%; animation-delay: 3s; animation-duration: 10s; }
+.bubble:nth-child(5) { width: 45px; height: 45px; top: 50%; left: 45%; animation-delay: 4s; animation-duration: 11s; }
+.bubble:nth-child(6) { width: 20px; height: 20px; top: 75%; left: 35%; animation-delay: 5s; animation-duration: 6s; }
+.bubble:nth-child(7) { width: 30px; height: 30px; top: 40%; left: 50%; animation-delay: 6s; animation-duration: 8s; }
+.bubble:nth-child(8) { width: 28px; height: 28px; top: 15%; left: 70%; animation-delay: 7s; animation-duration: 9s; }
+.bubble:nth-child(9) { width: 38px; height: 38px; top: 65%; left: 85%; animation-delay: 8s; animation-duration: 10s; }
+.bubble:nth-child(10){ width: 22px; height: 22px; top: 45%; left: 35%; animation-delay: 9s; animation-duration: 7s; }
+.bubble:nth-child(11) { width: 40px; height: 40px; top: 10%; left: 15%; animation-delay: 0s; animation-duration: 8s; }
+.bubble:nth-child(12) { width: 35px; height: 35px; top: 30%; left: 60%; animation-delay: 1s; animation-duration: 9s; }
+.bubble:nth-child(13) { width: 30px; height: 30px; top: 60%; left: 25%; animation-delay: 2s; animation-duration: 7s; }
+.bubble:nth-child(14) { width: 25px; height: 25px; top: 20%; left: 80%; animation-delay: 3s; animation-duration: 10s; }
+.bubble:nth-child(15) { width: 45px; height: 45px; top: 50%; left: 45%; animation-delay: 4s; animation-duration: 11s; }
+.bubble:nth-child(16) { width: 20px; height: 20px; top: 75%; left: 35%; animation-delay: 5s; animation-duration: 6s; }
+.bubble:nth-child(17) { width: 30px; height: 30px; top: 40%; left: 50%; animation-delay: 6s; animation-duration: 8s; }
+.bubble:nth-child(18) { width: 28px; height: 28px; top: 15%; left: 70%; animation-delay: 7s; animation-duration: 9s; }
+.bubble:nth-child(19) { width: 38px; height: 38px; top: 65%; left: 85%; animation-delay: 8s; animation-duration: 10s; }
+.bubble:nth-child(20){ width: 22px; height: 22px; top: 45%; left: 35%; animation-delay: 9s; animation-duration: 7s; }
 
-    @keyframes floatBubble {
-      0% { transform: translateY(0) scale(1); opacity: 0.4; }
-      50% { opacity: 0.7; }
-      100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
-    }
+
   </style>
 </head>
 
@@ -89,54 +109,56 @@
   </a>
 
 
-  <!-- Header fijo ajustado -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-[#0C134F]/70 backdrop-blur-sm">
-  <div class="w-full max-w-[1800px] px-4 md:px-10 py-4 flex justify-between items-center">
 
-    <!-- Logo y nombre más a la izquierda -->
+<!-- Header fijo ajustado -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0C134F]/70 backdrop-blur-sm">
+  <div class="w-full max-w-[1800px] px-4 lg:px-10 py-4 flex justify-between items-center">
+
+    <!-- Logo y nombre -->
     <div class="flex items-center space-x-2 mr-auto">
-<img src="./assets/logo redondo.png" 
-     alt="Logo Martínez Iure"
-     class="w-10 h-10 rounded-full" />
-      <span class="text-lg md:text-xl font-bold text-[#D4ADFC] uppercase tracking-wide">
+      <img src="./assets/logo.webp" alt="Logo Martínez Iure" class="w-10 h-10 rounded-full" />
+      <span class="text-lg lg:text-xl font-bold text-[#D4ADFC] uppercase tracking-wide">
         Martínez Iure
       </span>
     </div>
 
-    <!-- Menú escritorio más a la derecha -->
-    <nav class="hidden md:flex space-x-4 text-white font-medium ml-auto">
+    <!-- Menú escritorio (visible solo en pantallas grandes) -->
+    <nav class="hidden lg:flex space-x-4 text-white font-medium ml-auto">
       <a href="#inicio" class="hover:text-[#D4ADFC]">Inicio</a>
       <a href="#nosotros" class="hover:text-[#D4ADFC]">Nosotros</a>
       <a href="#formacion" class="hover:text-[#D4ADFC]">Formación</a>
+      <a href="#equipo" class="hover:text-[#D4ADFC]">Nuestro Equipo</a>
       <a href="#servicios" class="hover:text-[#D4ADFC]">Servicios</a>
       <a href="#testimonios" class="hover:text-[#D4ADFC]">Testimonios</a>
       <a href="#contacto" class="hover:text-[#D4ADFC]">Contacto</a>
       <a href="#puedes-encontrarnos" class="hover:text-[#D4ADFC]">Puedes encontrarnos en...</a>
     </nav>
 
-    <!-- Botón hamburguesa (para móvil) -->
-    <button id="menu-btn" class="md:hidden text-white text-2xl z-50">
+    <!-- Botón hamburguesa (visible en tablets/móviles) -->
+    <button id="menu-btn" class="lg:hidden text-white text-2xl z-50">
       <i class="fas fa-bars"></i>
     </button>
   </div>
 </header>
 
-  <!-- Overlay oscuro -->
-  <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+<!-- Overlay oscuro -->
+<div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
 
-  <!-- Menú móvil lateral -->
+<!-- Menú móvil lateral -->
 <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-[#0C134F]/70 backdrop-blur-sm text-white p-6 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-    <button id="close-btn" class="text-2xl absolute top-4 right-4">&times;</button>
-    <nav class="mt-12 flex flex-col space-y-4">
-      <a href="#inicio" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Inicio</a>
-      <a href="#nosotros" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Nosotros</a>
-      <a href="#formacion" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Formación</a>
-      <a href="#servicios" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Servicios</a>
-      <a href="#testimonios" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Testimonios</a>
-      <a href="#contacto" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Contacto</a>
-      <a href="#puedes-encontrarnos" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Puedes encontrarnos en...</a>
-    </nav>
-  </div>
+  <button id="close-btn" class="text-2xl absolute top-4 right-4">&times;</button>
+  <nav class="mt-12 flex flex-col space-y-4">
+    <a href="#inicio" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Inicio</a>
+    <a href="#nosotros" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Nosotros</a>
+    <a href="#formacion" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Formación</a>
+    <a href="#equipo" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Nuestro equipo</a>     
+    <a href="#servicios" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Servicios</a>
+    <a href="#testimonios" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Testimonios</a>
+    <a href="#contacto" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Contacto</a>
+    <a href="#puedes-encontrarnos" onclick="closeMenu()" class="hover:text-[#D4ADFC] transition duration-300">Puedes encontrarnos en...</a>
+  </nav>
+</div>
+
 
 
 
@@ -146,10 +168,10 @@
 
 <div class="swiper h-full absolute inset-0 z-0">
   <div class="swiper-wrapper">
-    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/computadorhero.png');"></div>
-    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/edificioblanco.png');"></div>
-    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/diosatenisblancahero.png');"></div>
-    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/martillolibrohero.png');"></div>
+    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/computadorhero.webp');"></div>
+    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/edificioblanco.webp');"></div>
+    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/diosatenisblancaher.webp');"></div>
+    <div class="swiper-slide bg-cover bg-center" style="background-image: url('./assets/martillolibrohero.webp');"></div>
   </div>
 
     <!-- Capa oscura para mejor contraste -->
@@ -158,7 +180,7 @@
 
   <!-- Contenido fijo sobre el carrusel -->
   <div class="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
-<img src="./assets/logo redondo.png" 
+<img src="./assets/logo.webp" 
      alt="Logo Martínez Iure"
      class="w-28 h-28 md:w-36 md:h-36 mb-6 rounded-full" />
 
@@ -168,10 +190,11 @@
     <p class="text-xl md:text-3xl font-medium text-white max-w-xl drop-shadow-lg">
       Tu tranquilidad legal empieza con una buena orientación.
     </p>
-    <a href="https://wa.me/573229318910" target="_blank"
-       class="inline-block mt-6 px-6 py-3 bg-[#5C469C] hover:bg-[#D4ADFC] text-white font-semibold rounded-lg transition duration-200">
-      <i class="fab fa-whatsapp mr-2"></i>Contáctanos por WhatsApp
-    </a>
+<a href="https://wa.me/573229318910" target="_blank"
+   class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-[#5C469C] hover:bg-[#D4ADFC] text-white hover:text-[#5C469C] font-semibold rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_#D4ADFC]">
+  <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+</a>
+
   </div>
 
 <!-- Íconos sociales -->
@@ -196,11 +219,11 @@
   <!-- Sección Nosotros -->
 <section id="nosotros"
   class="relative bg-cover bg-center bg-no-repeat py-24 px-4 md:px-8"
-  style="background-image: url('https://images.unsplash.com/photo-1581091012184-7b8d2d9b2b89?auto=format&fit=crop&w=1400&q=80');"
+  style="background-image: url('./assets/legal_scene.webp');"
   data-aos="fade-up">
 
   <!-- Overlay oscuro -->
-  <div class="absolute inset-0 bg-[#0C134F]/80 z-10"></div>
+  <div class="absolute inset-0 bg-[#0C134F]/90 z-10"></div>
 
   <!-- Contenedor con fondo semitransparente -->
   <div class="relative z-20 max-w-4xl mx-auto text-center backdrop-blur-md bg-white/10 border border-white/20 rounded-xl px-6 py-10 shadow-lg">
@@ -223,38 +246,111 @@
 
 
 
-<!-- Sección: Formación con burbujas -->
-  <section id="formacion" class="relative overflow-hidden py-20 px-6 bg-gradient-to-br from-[#F9F7FF] to-[#ECE8FA]" data-aos="fade-up">
-    <div class="bubble-container">
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-    </div>
+<!-- Sección: Formación con burbujas y video de fondo -->
+<section id="formacion" class="relative overflow-hidden py-20 px-6">
 
-    <div class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+  <!-- 🎥 Video de fondo -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./assets/videoformacion.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🌫️ Capa translúcida para suavizar video -->
+  <div class="absolute inset-0 bg-white/50 backdrop-blur-md z-0"></div>
+
+  <!-- 🔵 Burbujas decorativas -->
+  <div class="bubble-container z-0">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- 📦 Contenido principal -->
+  <div class="relative z-10 max-w-6xl mx-auto flex flex-col gap-12">
+    <!-- Título -->
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5C469C] tracking-tight" data-aos="fade-down">
+      Formación y Experiencia
+    </h2>
+
+    <!-- Imagen y texto -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+
       <!-- Foto Angie -->
-<div data-aos="fade-right">
-  <img src="./assets/fotoangie.png" 
-       alt="Dra. Angie Martínez" 
-       class="w-60 h-60 md:w-72 md:h-72 object-cover rounded-full shadow-xl border-4 border-[#D4ADFC]" />
-</div>
+      <div class="flex-shrink-0 w-full md:w-auto" data-aos="fade-right">
+        <img src="./assets/fotoangie.webp"
+             alt="Dra. Angie Martínez"
+             class="mx-auto md:mx-0 w-40 sm:w-56 md:w-64 lg:w-80 aspect-square object-cover rounded-full shadow-xl ring-4 ring-[#D4ADFC]" />
+      </div>
 
-      <!-- Contenido -->
-      <div class="text-[#D4ADFC] max-w-2xl" data-aos="fade-left">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#5C469C] mb-4 tracking-tight">
-          Formación y Experiencia
-        </h2>
+      <!-- Texto -->
+      <div class="text-[#5C469C] max-w-2xl md:text-left text-center" data-aos="fade-left">
         <p class="text-base md:text-lg leading-relaxed text-gray-800 font-light">
-          <span class="font-medium text-[#D4ADFC]">Angie Martínez</span> es abogada egresada de la <em>Universidad La Gran Colombia</em>, con especialización en <em>Instituciones Jurídicas de la Seguridad Social</em> por la <em>Universidad Nacional de Colombia,</em> Diplomada en <em>Acción de Tutela de la Universidad Externado de Colombia</em><em> y Conciliadora Extrajudicial en Derecho</em> por la <em>Universidad Católica de Colombia</em>.<br><br>
+          <span class="font-medium text-[#5C469C]">Angie Martínez</span> es abogada egresada de la <em>Universidad La Gran Colombia</em>, con especialización en <em>Instituciones Jurídicas de la Seguridad Social</em> por la <em>Universidad Nacional de Colombia</em>, Diplomada en <em>Acción de Tutela</em> de la <em>Universidad Externado de Colombia</em> y <em>Conciliadora Extrajudicial en Derecho</em> por la <em>Universidad Católica de Colombia</em>.<br><br>
           Con más de 7 años de experiencia profesional, ha asesorado y litigado en áreas clave como el derecho laboral, la seguridad social y en acciones de tutela.<br><br>
           Su distintivo es la <strong>argumentación estratégica</strong>, que combina pensamiento analítico, creatividad y herramientas digitales para brindar soluciones legales claras, sólidas y efectivas.
         </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+
+
+
+
+<!-- Sección: Nuestro Equipo -->
+<section id="equipo" class="relative z-10 py-20 px-6 bg-gradient-to-br from-[#F7F3FF] via-[#EFE3FA] to-[#FDFDFF]">
+
+  <!-- Contenido centrado -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-[#5C469C] mb-12 tracking-tight">
+      Nuestro Equipo
+    </h2>
+
+    <!-- Tarjeta centrada -->
+    <div class="flex justify-center">
+      <div class="ransition-transform duration-300 hover:scale-105 w-full max-w-2xl bg-white/40 backdrop-blur-lg rounded-3xl shadow-xl px-8 py-10 flex flex-col items-center text-center border border-[#D4ADFC] space-y-4">
+
+        <img src="./assets/fotomaria.webp" 
+             alt="Dra. María Alejandra Almanza" 
+             class="w-40 h-40 object-cover rounded-full shadow-md border-4 border-[#D4ADFC]" />
+
+        <h3 class="text-xl font-semibold text-[#5C469C]">Dra. María Alejandra Almanza</h3>
+
+        <p class="text-gray-800 text-base font-light">
+          Abogada egresada de la Universidad Católica de Colombia, con especializaciones en Derecho Laboral de la Universidad Sergio Arboleda e Instituciones de la Seguridad Social de la Universidad Nacional de Colombia, candidata a Magíster en Derecho del Trabajo de la Universidad Externado de Colombia.
+        </p>
+
+        <p class="text-gray-800 text-base font-light">
+          Con más de 11 años de experiencia, desempeñándose como apoderada judicial de entidades públicas y liderando procesos complejos ante la Corte Suprema de Justicia, Sala Laboral.
+        </p>
+
+        <p class="text-gray-800 text-base font-light">
+          Su distintivo es el litigio técnico con la protección integral de los derechos sociales, convencida de que la abogacía transformadora debe articular justicia, empatía y conocimiento jurídico.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -262,7 +358,7 @@
 
 <!-- Sección: SERVICIOS -->
 <section id="servicios" class="pt-0 bg-cover bg-center text-white"
-  style="background-image: url('./assets/cafecongafas.png'); background-position: right center; background-size: cover; background-repeat: no-repeat;">
+  style="background-image: url('./assets/cafecongafas.jpg'); background-position: right center; background-size: cover; background-repeat: no-repeat;">
 
   <div class="bg-[#0C134F]/30 backdrop-blur-sm py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
@@ -345,7 +441,7 @@
 
 <!-- Sección: Testimonios -->
 <section id="testimonios" class="py-20 px-6 bg-fixed bg-cover bg-center bg-no-repeat relative"
-  style="background-image: url('./assets/diosatenismorada.png');">
+  style="background-image: url('./assets/diosatenismorada.webp');">
 
   
   <!-- Capa oscura para resaltar el contenido -->
@@ -384,7 +480,7 @@
 
 <!-- Sección: Contacto -->
 <section id="contacto" 
-         class="relative bg-[url('./assets/imagentenisservicios.png')] 
+         class="relative bg-[url('./assets/imagentenisservicios.webp')] 
                 bg-cover bg-center bg-no-repeat bg-fixed py-24 px-6">
   
   <!-- Capa oscura semitransparente -->
@@ -512,10 +608,6 @@
 
 
 
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <!-- Inicialización del carrusel -->
 <script>
   const swiper = new Swiper('.swiper', {
@@ -528,6 +620,35 @@
     speed: 300
   });
 </script>
+
+
+<!-- En la etiqueta <html> o justo al iniciar tu JS -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+
+
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+        class="fixed bottom-24 right-5 bg-[#5C469C] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#D4ADFC] hover:scale-110 hover:shadow-lg transition-all duration-300 z-50 hidden"
+        id="scrollTopBtn">
+  ↑
+</button>
+
+<script>
+  const btn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+</script>
+
+
 
 
 </body>
