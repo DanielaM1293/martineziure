@@ -3,20 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eliminación de datos | Martínez Iure</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Eliminación de Datos | Martínez Iure</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (Íconos de redes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <!-- AOS (Animaciones) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <style>body { font-family: 'Roboto', sans-serif; }</style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed">
-  <main class="max-w-3xl mx-auto py-12 px-6">
-    <h1 class="text-3xl font-bold text-[#5C469C] mb-6">Eliminación de datos de usuario</h1>
 
+<body class="min-h-screen bg-gradient-to-br from-[#F7F3FF] to-[#ECE9FA] text-gray-800 leading-relaxed">
+  <header class="w-full py-4 px-6 flex items-center justify-between max-w-4xl mx-auto">
+    <img src="./assets/logo.webp" alt="Martínez Iure" class="h-12 w-auto" />
+<a href="/" 
+   class="bg-[#5C469C] hover:bg-[#D4ADFC] text-white text-sm font-medium px-4 py-2 rounded transition duration-300 shadow-md">
+  Volver al inicio
+</a>
+  </header>
+
+  <main class="max-w-3xl mx-auto py-12 px-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl" data-aos="fade-up" data-aos-duration="800">
+    <h1 class="text-3xl font-bold text-[#5C469C] mb-6">Eliminación de Datos de Usuario</h1>
     <p class="mb-4">Martínez Iure no utiliza funciones de inicio de sesión con Facebook ni recopila datos personales a través de ninguna API de Meta.</p>
-
-    <p class="mb-4">Si deseas solicitar la eliminación de cualquier información personal proporcionada por otros medios (como correo electrónico o WhatsApp), puedes escribirnos directamente a:</p>
-
+    <p class="mb-4">Si deseas solicitar la eliminación de cualquier información personal proporcionada por otros medios, puedes escribirnos directamente a:</p>
     <p class="font-semibold text-[#5C469C]">📧 <a href="mailto:contactenos@martineziure.com" class="underline hover:text-[#D4ADFC]">contactenos@martineziure.com</a></p>
-
     <p class="mt-6 text-sm text-gray-500">Última actualización: julio de 2025</p>
   </main>
+  <!-- Redes sociales + Footer -->
+<footer id="puedes-encontrarnos" class="bg-white py-10">
+  <div class="max-w-6xl mx-auto text-center space-y-6">
+
+    <!-- Encabezado accesible invisible -->
+    <h2 id="redes-title" class="sr-only">Redes sociales de Martínez Iure</h2>
+
+    <!-- Redes sociales -->
+    <div class="flex justify-center space-x-8 text-4xl text-[#5C469C]" aria-labelledby="redes-title">
+      <a href="https://wa.me/573229318910" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="WhatsApp de Martínez Iure"
+         title="Contáctanos por WhatsApp"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://facebook.com/martineziure" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Facebook de Martínez Iure"
+         title="Visítanos en Facebook"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com/martinez.iure" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Instagram de Martínez Iure"
+         title="Síguenos en Instagram"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:contactenos@martineziure.com" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Correo electrónico de Martínez Iure"
+         title="Escríbenos por correo"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/angie-mart%C3%ADnez-3b76271a8" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="LinkedIn de Angie Martínez"
+         title="Conecta en LinkedIn"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.tiktok.com/@martinez.iure" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="TikTok de Martínez Iure"
+         title="Síguenos en TikTok"
+         class="hover:text-[#D4ADFC] transition transform hover:scale-110 duration-300">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+
+    <!-- Enlaces legales -->
+    <div class="flex justify-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 mt-6">
+            <a href="/terminos-y-condiciones.html" class="hover:text-[#5C469C] underline">Términos y Condiciones</a>
+      <a href="/politica-de-privacidad.html" class="hover:text-[#5C469C] underline">Política de Privacidad</a>
+     </div>
+
+    <!-- Derechos -->
+    <p class="text-gray-500 text-sm">© 2025 Martínez Iure. Todos los derechos reservados.</p>
+  </div>
+</footer>>
+
+  <script>AOS.init();</script>
 </body>
 </html>
