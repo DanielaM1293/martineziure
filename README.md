@@ -81,13 +81,9 @@ python -m http.server 8000
 
 ---
 
-## 📈 Lo que aprendí
-
-[Escribe 2 o 3 frases propias. Por ejemplo: trabajar con un cliente real, traducir sus necesidades a una estructura clara, SEO local, o manejar el contenido legal y de privacidad.]
 
 ## 🔜 Próximas mejoras
 
-- Versión en inglés, ya que el público incluye colombianos en el exterior.
 - Medir rendimiento y accesibilidad con Lighthouse.
 - Sección de preguntas frecuentes.
 
