@@ -12,7 +12,7 @@ Sitio web profesional para **Martínez Iure**, un consultorio jurídico de Bogot
 
 Proyecto real para un cliente: diseñé y desarrollé el sitio completo, desde la estructura y el diseño visual hasta el despliegue. El objetivo era dar al consultorio una presencia profesional en línea, explicar sus servicios con claridad y facilitar que un posible cliente lo contacte en pocos clics.
 
-**Mi rol:** diseño, maquetación, desarrollo front-end, SEO básico y despliegue. [Ajusta aquí si hiciste algo más o algo menos.]
+**Mi rol:** diseño, maquetación, desarrollo front-end, SEO básico y despliegue. 
 
 ---
 
